@@ -23,7 +23,7 @@ test('/login endpoint redirect to gh', (t) => {
 test('/welcome code is present', (t) => {
     var expected, actual;
     var options = {
-        url:'/welcome',
+        url:'/welcome?code=something12345',
         method: 'GET'
     };
 
@@ -44,18 +44,18 @@ test('/welcome code is present', (t) => {
     });
 });
 
-test('/welcome code is present', (t) => {
+test('at route /welcome if code is not present give 400 (bad request)', (t) => {
     var expected, actual;
     var options = {
-        url:'/hello',
+        url:'/welcome',
         method: 'GET'
     };
 
     server.inject(options, (response) => {
         //redirects to meetup
         actual = response.statusCode;
-        expected = 302;
-        t.equal(actual, expected, 'server responds with 302');
+        expected = 400;
+        t.equal(actual, expected, '400 bad request');
 
         // var redirect = response.headers.location;
         // var redirectOptions = url.parse(redirect);
