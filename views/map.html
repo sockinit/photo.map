@@ -1,9 +1,13 @@
-
 <h1>Welcome to the map view</h1>
 
-<div id='map' style="height:50vh; width:50vw; background-color:blue;">
+<div id='map'></div>
 
-</div>
+<p>
+  latitude : {{data.latitude}}
+  longitude : {{data.longitude}}
+</p>
+
 <script type="text/javascript" src="../../public/main.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key={{data}}&signed_in=true&callback=initMap"
+<script type="text/javascript" src="../../public/mapmarker.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{data.api_key}}&signed_in=true&callback=initMap"
     async defer></script>

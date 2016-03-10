@@ -1,4 +1,16 @@
+/*importing 3 fonts from google font*/
+@import url(https://fonts.googleapis.com/css?family=Oswald|Raleway|Poiret+One);
+
 body {
     background-color: steelblue;
     color: white;
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+}
+#map {
+  margin-left: auto;
+  margin-right: auto;
+  height: 70vh;
+  width: 70vw;
+  background-color: steelblue;
 }
