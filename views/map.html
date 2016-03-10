@@ -2,6 +2,10 @@
 
 <div id='map'></div>
 
+{{#each data.eventsArray}}
+<li>{{this}}</li>
+{{/each}}
+
 <p>
   latitude : {{data.latitude}}
   longitude : {{data.longitude}}
