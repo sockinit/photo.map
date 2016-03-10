@@ -21,13 +21,11 @@ function initMap() {
         lat: '' + el.latLng.lat(),
         lng: '' + el.latLng.lng()
       }
-
-      console.log('currentLocation', currentLocation );
     });
 
 }
 
-// places ,arker on map and pans to given lat/long
+// places marker on map and pans to given lat/long
 
 function placeMarkerAndPanTo(latLng, map) {
   if(marker) {
