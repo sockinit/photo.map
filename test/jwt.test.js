@@ -19,3 +19,13 @@ test('decodeToken returns original token back to us', (t) => {
     t.equal(actual, expected , 'jwt.decodeToken decrypts token');
     t.end();
 });
+
+//Wanted to test that incorrect encryption returns something (not an error) 
+// test('decodeToken returns empty string if decrypted value doesnt match original', (t) => {
+//     const encrypted = jwt.generateToken('token');
+//     const falseEncrypted = encrypted + 'false';
+//     const actual = jwt.decodeToken(falseEncrypted);
+//     const expected = '';
+//     t.equal(actual, expected , 'jwt.decodeToken doesnt match decrypted value');
+//     t.end();
+// });
