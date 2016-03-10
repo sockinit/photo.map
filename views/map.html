@@ -1,6 +1,6 @@
 <h1>Welcome to the map view</h1>
 
-<div id='map' style="background-color:blue;"></div>
+<div id='map'></div>
 
 <p>
   latitude : {{data.latitude}}
@@ -8,5 +8,6 @@
 </p>
 
 <script type="text/javascript" src="../../public/main.js"></script>
+<script type="text/javascript" src="../../public/mapmarker.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key={{data.api_key}}&signed_in=true&callback=initMap"
     async defer></script>
