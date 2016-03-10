@@ -1,1 +1,2 @@
-require('./authenticate.test.js');
+// require('./authenticate.test.js');
+require('./server.test.js');
