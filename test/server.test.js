@@ -23,7 +23,7 @@ test('test if we get a response', (t) => {
 
     var expected = 200;
     var actual = response.statusCode;
-    t.ok(actual, expected, 'server gets a response');
+    t.equal(actual, expected, 'server gets a response');
     t.end();
     });
 });
