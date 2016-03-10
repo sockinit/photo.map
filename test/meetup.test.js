@@ -7,13 +7,12 @@ test('function getEvents should return an object', (t) => {
     let now = Date.now();
     const oneWeek = 1000*60*60*24*7;
     const options = {
-        lattitude: '51.559652',
+        latitude: '51.559652',
         longitude: '-0.093986',
         radius: 2,
         time1: now,
         time2: now + oneWeek
     };
-
     meetup.getEvents(options, (data) => {
         actual = typeof data;
         expected = 'object';
