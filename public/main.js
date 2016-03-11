@@ -6,7 +6,7 @@
 var map, currentLocation, marker;
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 51, lng: 0},
+      center: {lat: 51.528837, lng: -0.165653},
       zoom: 10,
       mapTypeId: google.maps.MapTypeId.HYBRID,
       draggableCursor: 'crosshair'
@@ -19,7 +19,7 @@ function initMap() {
       currentLocation = {
         lat: '' + el.latLng.lat(),
         lng: '' + el.latLng.lng()
-      }
+    };
     });
 
 }
@@ -41,7 +41,7 @@ function placeMarkerAndPanTo(latLng, map) {
 document.getElementById('map').addEventListener('click', function() {
     console.log(markersArr);
     markersArr.forEach(function(marker) {
-        marker.setMap(null)
+        marker.setMap(null);
     });
     markersArr = [];
     document.cookie="Latitude=" + currentLocation.lat + "; path=/";
@@ -53,7 +53,7 @@ document.getElementById('map').addEventListener('click', function() {
             mapMeetups();
 
       }
-  }
+  };
   xhr.open('GET', '/map/meetup',true);
   xhr.send();
 });
