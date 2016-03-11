@@ -1,5 +1,3 @@
-console.log('yayayaa!');
-//
 
 // function that creates map and shoves it on the screen
 
