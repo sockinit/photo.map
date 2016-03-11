@@ -1,4 +1,5 @@
 
+
 // function that creates map and shoves it on the screen
 
 
@@ -38,37 +39,38 @@ function placeMarkerAndPanTo(latLng, map) {
 }
 
 document.getElementById('map').addEventListener('click', function() {
-  // var path = window.location.pathname;
-  // console.log(!(path.indexOf('/meetup') > -1));
-    if(!(window.location.pathname.indexOf('/meetup') > -1)){
-      console.log();
-      window.location.pathname += "/meetup";
-      document.cookie="Latitude=" + currentLocation.lat + "; path=/";
-      document.cookie="Longitude=" + currentLocation.lng + "; path=/";
+    console.log(markersArr);
+    markersArr.forEach(function(marker) {
+        marker.setMap(null)
+    });
+    markersArr = [];
+    document.cookie="Latitude=" + currentLocation.lat + "; path=/";
+    document.cookie="Longitude=" + currentLocation.lng + "; path=/";
+  var xhr = new XMLHttpRequest();
 
-    }
-    else if (window.location.pathname.indexOf('/meetup') > -1){
-      console.log('bonjour');
-      document.cookie="Latitude=" + currentLocation.lat + "; path=/";
-      document.cookie="Longitude=" + currentLocation.lng+ "; path=/";
-      document.location.reload(true);
-    }
+  xhr.onreadystatechange = function(res){
+      if(res.target.status === 200 && res.target.readyState === 4){
+            mapMeetups();
+
+      }
+  }
+  xhr.open('GET', '/map/meetup',true);
+  xhr.send();
 });
 
-// document.getElementById('map').addEventListener('click', function() {
-//   // var path = window.location.pathname;
-//   // console.log(!(path.indexOf('/meetup') > -1));
-//     // if(!(window.location.pathname.indexOf('/meetup') > -1)){
-//     //   console.log();
-//     //   window.location.pathname += "/meetup";
-//     //   document.cookie="Latitude=" + currentLocation.lat + ";path='/'";
-//     //   document.cookie="Longitude=" + currentLocation.lng + ";path='/'";
-//     //
-//     // }
-//     if (window.location.pathname.indexOf('/meetup') > -1){
-//       console.log('------------',document.cookie);
-//
-//       document.cookie="Latitude=" + currentLocation.lat+ "; path=/";
-//       document.cookie="Longitude=" + currentLocation.lng+ "; path=/";
-//     }
-// });
+var markersArr = [];
+
+function mapMeetups(){
+    var cookieLocs = document.cookie.split('AA')[1].split('Q');
+    markersArr = cookieLocs.map(function(meetup){
+        // console.log(Number(meetup.split('--')[0]));
+        var marker = new google.maps.Marker({
+            position: {lat: Number(meetup.split('Z')[0]), lng: Number(meetup.split('Z')[1])},
+            map: map
+        });
+marker.setMap(map);
+        return marker;
+    });
+
+
+}
