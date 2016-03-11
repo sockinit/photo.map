@@ -80,4 +80,21 @@ header {
     .list .separation img {
       width: 120px; }
 
+/************** twitter *********************/
+iframe#twitter-widget-0 {
+  display: block !important;
+  margin: 0px auto 30px auto;
+  margin-top: 80px !important; }
+
+.twitter-btn {
+  display: flex;
+  position: absolute;
+  background-color: white;
+  color: darkturquoise;
+  text-decoration: none;
+  padding: 15px 25px;
+  font-size: 21px;
+  z-index: 1;
+  margin-top: -63px; }
+
 /*# sourceMappingURL=style.css.map */
