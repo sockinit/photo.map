@@ -4,15 +4,16 @@
     {{/each}}
 </div>
 
+<a href="/twitter" class="twitter-btn"><span>Twitter</span></a>
 <div class="list">
   {{#each data.eventsArray}}
   <div class="meetup">
-    <h2 class='name'>{{this.name}}</h2> <a href="{{this.event_url}}">Check this on MeetUp</a> <br>
+    <h2 class='name'>{{this.name}}</h2> <a class='meetup-btn' href="{{this.event_url}}">Check this on MeetUp</a> <br>
     <span class='date-and-address'><span class="date">ON {{this.dateTime}}</span> ~ <span>AT {{this.address}}</span></span> <br>
     <p class='group'>BY {{this.groupurlname}}</p>
 
     <div class="description">
-      {{this.description}}
+      {{{this.description}}}
     </div>
 
   </div>
