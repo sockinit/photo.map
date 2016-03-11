@@ -1,17 +1,16 @@
 <div class="list">
   {{#each data.eventsArray}}
   <div class="meetup">
-  <h2 class='name'><em>{{this.name}}</em></h2> <a href="{{this.event_url}}">Check this on MeetUp</a> <br>
-  <span class="date">ON {{this.dateTime}}</span> ~ <span>AT {{this.address}}</span> <br>
-  <p class='group'>BY {{this.groupurlname}}</p>
+    <h2 class='name'>{{this.name}}</h2> <a href="{{this.event_url}}">Check this on MeetUp</a> <br>
+    <span class='date-and-address'><span class="date">ON {{this.dateTime}}</span> ~ <span>AT {{this.address}}</span></span> <br>
+    <p class='group'>BY {{this.groupurlname}}</p>
 
-  <div class="des">
-
-   {{this.description}}
-   </div>
+    <div class="description">
+      {{this.description}}
+    </div>
 
   </div>
-  <div class="separation"><img src="https://cdn2.iconfinder.com/data/icons/travel-set-1/512/24-512.png" alt="" /></div>
+  <div class="separation"><img src="http://s27.postimg.org/671s0yjir/point_blanc.png" alt="" /></div>
   {{/each}}
 </div>
 
