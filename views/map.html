@@ -1,15 +1,20 @@
-<h1>Welcome to the map view</h1>
+<div class="list">
+  {{#each data.eventsArray}}
+  <div class="meetup">
+    <h2 class='name'>{{this.name}}</h2> <a href="{{this.event_url}}">Check this on MeetUp</a> <br>
+    <span class='date-and-address'><span class="date">ON {{this.dateTime}}</span> ~ <span>AT {{this.address}}</span></span> <br>
+    <p class='group'>BY {{this.groupurlname}}</p>
+
+    <div class="description">
+      {{this.description}}
+    </div>
+
+  </div>
+  <div class="separation"><img src="http://s27.postimg.org/671s0yjir/point_blanc.png" alt="" /></div>
+  {{/each}}
+</div>
 
 <div id='map'></div>
-
-{{#each data.eventsArray}}
-<li>NAME---{{this.name}}DATE---{{this.dateTime}}URL---{{this.event_url}}GROUPURL----{{this.groupurlname}}DESCRIPTION----{{this.description}}ADDRESS----{{this.address}}</li>
-{{/each}}
-
-<p>
-  latitude : {{data.latitude}}
-  longitude : {{data.longitude}}
-</p>
 
 <script type="text/javascript" src="../../public/main.js"></script>
 <script type="text/javascript" src="../../public/mapmarker.js"></script>

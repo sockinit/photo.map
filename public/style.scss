@@ -1,0 +1,95 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald|Raleway|Poiret+One);
+
+body {
+    background-color: #3B6569;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    margin: 0;
+    background-image: url("http://www.transparenttextures.com/patterns/triangles.png");
+    // background-image: url("http://www.transparenttextures.com/patterns/60-lines.png");
+}
+
+/********************** map ******************/
+
+#map {
+  margin-left: auto;
+  margin-right: auto;
+  height: 142vh;
+  width: 50vw;
+  background-color: steelblue !important;
+  margin-right: -7px;
+  float: left;
+  margin-top: -48px;
+}
+/***************** header *******************/
+.back {
+    width: 107%;
+    height: 206px;
+    background-color: lightseagreen;
+    transform: rotate(-3deg);
+    position: absolute;
+    z-index: 1;
+    margin-top: -56px;
+    margin-left: -30px;
+    border-bottom-style: solid;
+}
+header {
+  z-index: 1;
+  position: relative;
+  text-align: center;
+  .title {
+    margin-bottom: 0px;
+    border-bottom: 3px solid white;
+    padding-bottom: 16px;
+    background-color: darkcyan;
+    margin-top: 0;
+    padding-top: 9px;
+  }
+  .welcome { margin: 13px 0; }
+}
+
+/*********** list *************/
+
+.list {
+  width: 45.5vw;
+  float: left;
+  height: 100vh;
+  overflow: scroll;
+  padding: 30px;
+  margin-top: 62px;
+  .meetup {
+    .name {
+      margin-top: -5px;
+      display: inline-block;
+      margin-bottom: 33px;
+      width: 400px;
+      font-family: 'Raleway', sans-serif;
+    }
+    .group {
+      background-color: lightseagreen;
+      padding-left: 5px;
+    }
+    .date-and-address {
+      background-color: darkslategray;
+      padding-left: 5px;
+    }
+    .description {
+      font-family: "Raleway", sans-serif;
+    }
+    a {
+      float: right;
+      background-color: rgba(255, 255, 255, 0.49);
+      color: #3B6569;
+      padding: 13px;
+      text-decoration: overline;
+      cursor: pointer;
+    }
+  }
+  .separation {
+    width: 100px;
+    margin: 35px auto 45px auto;
+    &:last-child { display: none; }
+    img { width: 120px; }
+  }
+}
+//  background-image: url("https://cdn4.iconfinder.com/data/icons/maps-and-navigation-solid-icons-vol-1/72/08-512.png");
