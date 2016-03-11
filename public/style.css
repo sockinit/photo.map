@@ -43,6 +43,24 @@ header {
   header .welcome {
     margin: 13px 0; }
 
+/************ personql info from meetup ***********/
+.info-person {
+  display: inline-block;
+  height: 200px; }
+  .info-person .text {
+    display: inherit;
+    margin-left: 30px; }
+  .info-person .pic-box {
+    float: left;
+    display: inline-block;
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 100px;
+    border-radius: 50%; }
+    .info-person .pic-box .profile-pic {
+      width: 100%; }
+
 /*********** list *************/
 .list {
   width: 45.5vw;
