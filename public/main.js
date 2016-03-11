@@ -21,6 +21,7 @@ function initMap() {
         lat: '' + el.latLng.lat(),
         lng: '' + el.latLng.lng()
       }
+      console.log(currentLocation);
     });
 
 }
@@ -40,22 +41,54 @@ function placeMarkerAndPanTo(latLng, map) {
 }
 
 document.getElementById('map').addEventListener('click', function() {
-  // var path = window.location.pathname;
-  // console.log(!(path.indexOf('/meetup') > -1));
-    if(!(window.location.pathname.indexOf('/meetup') > -1)){
-      console.log();
-      window.location.pathname += "/meetup";
-      document.cookie="Latitude=" + currentLocation.lat + "; path=/";
-      document.cookie="Longitude=" + currentLocation.lng + "; path=/";
+    locationsArray = [];
+    document.cookie="Latitude=" + currentLocation.lat + "; path=/";
+    document.cookie="Longitude=" + currentLocation.lng + "; path=/";
+  var xhr = new XMLHttpRequest();
 
-    }
-    else if (window.location.pathname.indexOf('/meetup') > -1){
-      console.log('bonjour');
-      document.cookie="Latitude=" + currentLocation.lat + "; path=/";
-      document.cookie="Longitude=" + currentLocation.lng+ "; path=/";
-      document.location.reload(true);
-    }
+  xhr.onreadystatechange = function(res){
+      if(res.target.status === 200 ){
+            mapMeetups();
+      }
+  }
+  xhr.open('GET', '/map/meetup',true);
+  xhr.send();
+
+    // if(!(window.location.pathname.indexOf('/meetup') > -1)){
+    //   console.log();
+    //
+    // }
+    // else if (window.location.pathname.indexOf('/meetup') > -1){
+    //   console.log('bonjour');
+    //   document.cookie="Latitude=" + currentLocation.lat + "; path=/";
+    //   document.cookie="Longitude=" + currentLocation.lng+ "; path=/";
+    // //   document.location.reload(true);
+    // }
 });
+var locationsArray = [];
+
+
+
+function mapMeetups(){
+    // make array of map.locations('')
+    var jsonData = document.getElementById('hiddenData').innerHTML;
+    console.log('map meetups hit ');
+    var obj = JSON.parse(jsonData);
+    // console.log(obj);
+    locationsArray = obj.map(function(meetup){
+        var marker = new google.maps.Marker({
+            // The below line is equivalent to writing:
+            // position: new google.maps.LatLng(-34.397, 150.644)
+            position: {lat: meetup.latitude, lng: meetup.longitude},
+            map: map
+        });
+        return marker;
+    });
+    console.log(locationsArray);
+
+    //populate map with new markers
+
+}
 
 // document.getElementById('map').addEventListener('click', function() {
 //   // var path = window.location.pathname;
